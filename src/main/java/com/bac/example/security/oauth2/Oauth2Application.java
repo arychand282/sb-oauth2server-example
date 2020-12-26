@@ -1,13 +1,8 @@
-package com.dzone.example.security.oauth2;
+package com.bac.example.security.oauth2;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.context.annotation.ComponentScan;
-import org.springframework.context.annotation.ComponentScans;
 
-@ComponentScan({
-		"com.dzone.example.security.oauth2"
-})
 @SpringBootApplication
 public class Oauth2Application {
 

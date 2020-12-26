@@ -1,1 +1,31 @@
+server:
+  port: 8080
 
+spring:
+  application:
+    name: touristattractions
+  datasource:
+    url: jdbc:mysql://localhost:3306/security_oauth2_authentication_server
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    username: root
+    password: root
+  jpa:
+    properties:
+      hibernate:
+        show_sql: true
+        format_sql: true
+        legacy_limit_handler: true
+        dialect: org.hibernate.dialect.MySQL55Dialect
+        jdbc:
+          time_zone: Asia/Jakarta
+    hibernate:
+      ddl-auto: update
+  servlet:
+    multipart:
+      max-file-size: 500MB
+      max-request-size: 500MB
+
+logging:
+  level:
+    org:hibernate: DEBUG
+    org.springframework.security: debug
