@@ -1,5 +1,6 @@
 package com.bac.example.security.oauth2.config;
 
+import com.bac.example.security.oauth2.token.CustomJwtAccessTokenConverter;
 import com.bac.example.security.oauth2.token.CustomTokenEnhancer;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
@@ -16,7 +17,6 @@ import org.springframework.security.oauth2.provider.token.TokenEnhancer;
 import org.springframework.security.oauth2.provider.token.TokenEnhancerChain;
 import org.springframework.security.oauth2.provider.token.TokenStore;
 import org.springframework.security.oauth2.provider.token.store.JwtAccessTokenConverter;
-import org.springframework.security.oauth2.provider.token.store.JwtTokenStore;
 import org.springframework.util.ResourceUtils;
 
 import java.io.File;
@@ -61,7 +61,9 @@ public class AuthorizationServerConfiguration extends AuthorizationServerConfigu
 
     @Override
     public void configure(AuthorizationServerSecurityConfigurer security) throws Exception {
-        security.tokenKeyAccess("permitAll()").checkTokenAccess("isAuthenticated()");
+        security
+                .tokenKeyAccess("permitAll()")
+                .checkTokenAccess("isAuthenticated()");
     }
 
     @Override
@@ -77,7 +79,7 @@ public class AuthorizationServerConfiguration extends AuthorizationServerConfigu
     
     @Bean(name = "authorizationJwtAccessTokenConverter")
     public JwtAccessTokenConverter jwtAccessTokenConverter() {
-        JwtAccessTokenConverter converter = new JwtAccessTokenConverter();
+        CustomJwtAccessTokenConverter converter = new CustomJwtAccessTokenConverter();
         converter.setSigningKey(privateKey);
         return converter;
     }

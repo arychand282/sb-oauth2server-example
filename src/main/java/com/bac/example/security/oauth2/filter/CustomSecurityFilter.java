@@ -29,11 +29,8 @@ public class CustomSecurityFilter extends OncePerRequestFilter {
             OAuth2AuthenticationDetails auth2AuthenticationDetails = (OAuth2AuthenticationDetails) authentication.getDetails();
             Map<String, Object> decodedDetails = (Map<String, Object>) auth2AuthenticationDetails.getDecodedDetails();
 
-            log.info("authorities: {}", authentication.getAuthorities());
             System.out.println("===================");
-            authentication.getAuthorities().forEach(grantedAuthority -> {
-                log.info("grantedAuthority: {}", grantedAuthority.getAuthority());
-            });
+            log.info("decodedDetails: {}", decodedDetails);
             System.out.println("===================");
             
             filterChain.doFilter(request, response);

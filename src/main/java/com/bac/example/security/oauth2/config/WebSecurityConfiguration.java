@@ -1,6 +1,6 @@
 package com.bac.example.security.oauth2.config;
 
-import com.bac.example.security.oauth2.token.CustomAuthenticationProvider;
+import com.bac.example.security.oauth2.authentication.CustomAuthenticationProvider;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

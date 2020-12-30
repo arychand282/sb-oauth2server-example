@@ -68,7 +68,7 @@ public class UserController {
     
     private UserRole userRole(User user, RoleDto roleDto) {
         UserRole userRole = new UserRole();
-        Role role = roleService.findByCodeAndDeleteFlag(roleDto.getCode(), false)
+        Role role = roleService.findByCode(roleDto.getCode())
                 .orElseThrow(() -> new RuntimeException("Role Not Found"));
         userRole.setRole(role);
         userRole.setUser(user);

@@ -33,4 +33,12 @@ public class Menu {
     @Column(name = "delete_flag")
     private boolean deleteFlag;
     
+    public Menu() {
+        
+    }
+    
+    public Menu(String code) {
+        setCode(code);
+    }
+    
 }

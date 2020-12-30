@@ -15,6 +15,6 @@ public interface RoleService {
     
     Role save(Role role);
     
-    Optional<Role> findByCodeAndDeleteFlag(String code, boolean deleteFlag);
+    Optional<Role> findByCode(String code);
     
 }

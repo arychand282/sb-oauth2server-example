@@ -31,7 +31,7 @@ public class RoleServiceImpl implements RoleService {
     }
 
     @Override
-    public Optional<Role> findByCodeAndDeleteFlag(String code, boolean deleteFlag) {
-        return roleRepository.findByCodeAndDeleteFlag(code, deleteFlag);
+    public Optional<Role> findByCode(String code) {
+        return roleRepository.findByCodeAndDeleteFlag(code, false);
     }
 }

@@ -13,6 +13,6 @@ import java.util.List;
 @Repository
 public interface RoleMenuRepository extends PagingAndSortingRepository<RoleMenu, String> {
     
-    List<RoleMenu> findByRoleCodeAndRoleDeleteFlag(String roleCode, boolean roleDeleteFlag);
+    List<RoleMenu> findByRoleCodeAndMenuDeleteFlag(String roleCode, boolean menuDeleteFlag);
     
 }
